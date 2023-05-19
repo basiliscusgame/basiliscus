@@ -15,4 +15,4 @@ class Poti{
 
 
 }
-export default Poti
+export default Poti;

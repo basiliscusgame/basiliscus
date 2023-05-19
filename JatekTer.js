@@ -3,12 +3,14 @@ import JatekterELEM from "./JatekterELEM.js"
 class JatekTer {
   #lista = [];
   #divLista = [];
-  constructor() {
+  constructor(SzuloElem) {
     this.#lista = this.lista_init();
     console.log(this.#lista);
     //is.randompoti()
     console.log(this.randompoti())
     const pot = new Poti()
+    this.SzuloElem = $("article")
+    SzuloElem.append(this.#divLista)
   }
 
   
@@ -18,7 +20,7 @@ class JatekTer {
       this.#divLista[index] = new JatekterELEM();
       //console.log(this.#lista[index])
     }
-    return this.#lista
+    return this.#lista,this.#divLista
     
   }
 
