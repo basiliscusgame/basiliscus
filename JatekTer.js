@@ -1,4 +1,5 @@
 import Poti from "./Poti.js";
+import JatekterELEM from "./JatekterELEM.js"
 class JatekTer {
   #lista = [];
   constructor() {
