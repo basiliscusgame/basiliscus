@@ -1,7 +1,8 @@
 class JatekterELEM {
   #div;
-  constructor() {
-    this.#div = $("<div></div>");
+  constructor(SzuloElem) {
+    SzuloElem.append("<div></div>")
+    this.#div = SzuloElem.children("div:last-child");
   }
 }
 

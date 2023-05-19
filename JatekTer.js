@@ -1,44 +1,43 @@
 import Poti from "./Poti.js";
-import JatekterELEM from "./JatekterELEM.js"
+import JatekterELEM from "./JatekterELEM.js";
 class JatekTer {
   #lista = [];
   #divLista = [];
-  constructor(SzuloElem) {
+  #SzuloElem;
+  constructor() {
+    this.#SzuloElem = $("article");
     this.#lista = this.lista_init();
     console.log(this.#lista);
     //is.randompoti()
-    console.log(this.randompoti())
-    const pot = new Poti()
-    this.SzuloElem = $("article")
-    SzuloElem.append(this.#divLista)
+    console.log(this.randompoti());
+    /* const pot = new Poti() */
+    console.log(this.#divLista)
+    
+   console.log(this.#SzuloElem)
   }
 
-  
   lista_init() {
     for (let index = 0; index < 100; index++) {
-      this.#lista[index]= 0;
-      this.#divLista[index] = new JatekterELEM();
+      this.#lista[index] = 0;
+      this.#divLista[index] = new JatekterELEM(this.#SzuloElem);
       //console.log(this.#lista[index])
     }
-    return this.#lista,this.#divLista
-    
+    return this.#lista, this.#divLista;
   }
 
-  randompoti(){
+  randompoti() {
     for (let index = 0; index < 4; index++) {
-        const hely = Math.floor(Math.random()*this.#lista.length)
-        this.#lista[hely] = 1
-
+      const hely = Math.floor(Math.random() * this.#lista.length);
+      this.#lista[hely] = 1;
     }
-    return this.#lista
+    return this.#lista;
   }
-  poti(){
+  poti() {
     for (let index = 0; index < 4; index++) {
-        const kep = `<img src=" ${PICTURES[Math.floor(Math.random()*PICTURES.length)]}"  >`
+      const kep = `<img src=" ${
+        PICTURES[Math.floor(Math.random() * PICTURES.length)]
+      }"  >`;
     }
   }
-
-
-
 }
 export default JatekTer;
