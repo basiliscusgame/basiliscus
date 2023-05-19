@@ -21,3 +21,4 @@ class Poti{
     }
 
 }
+export default Poti

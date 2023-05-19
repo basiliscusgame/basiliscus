@@ -9,4 +9,14 @@ class Harry{
         this.#eletero = 5
         this.#varazsero = 2
     }
+
+
+    potik(){
+        
+    }
+
+
+
 }
+
+export default Harry
