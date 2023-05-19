@@ -14,7 +14,7 @@ class Poti{
 
     KEP() {
         for (let index = 0; index < PICTURES.length; index++) {
-            const kep =  ICTURES[Math.floor(Math.random()*PICTURES.length)]}" alt = "#" >` 
+            //const kep =  PICTURES[Math.floor(Math.random()*PICTURES.length)]}"  >` 
             
         }
 
