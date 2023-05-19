@@ -9,16 +9,10 @@ class Poti{
         this.#ero = ero
         this.#x= x
         this.#y = y
-        DivElem.append("<div></div>")
+        DivElem.append(`<img src ="${PICTURES[0]}" alt = "#" >`)
     }
 
-    KEP() {
-        for (let index = 0; index < PICTURES.length; index++) {
-            //const kep =  PICTURES[Math.floor(Math.random()*PICTURES.length)]}"  >` 
-            
-        }
-
-    }
+    
 
 }
 export default Poti
