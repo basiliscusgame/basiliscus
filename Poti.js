@@ -5,7 +5,7 @@ class Poti{
     #y
     #DivElem
     constructor(DivElem,kep){
-        this.#DivElem = $("article")
+       
         this.#ero = ero
         this.#x= x
         this.#y = y
