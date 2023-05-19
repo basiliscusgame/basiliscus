@@ -2,6 +2,7 @@ import Poti from "./Poti.js";
 import JatekterELEM from "./JatekterELEM.js"
 class JatekTer {
   #lista = [];
+  #divLista = [];
   constructor() {
     this.#lista = this.lista_init();
     console.log(this.#lista);
@@ -14,6 +15,7 @@ class JatekTer {
   lista_init() {
     for (let index = 0; index < 100; index++) {
       this.#lista[index]= 0;
+      this.#divLista[index] = new JatekterELEM();
       //console.log(this.#lista[index])
     }
     return this.#lista
@@ -24,6 +26,7 @@ class JatekTer {
     for (let index = 0; index < 4; index++) {
         const hely = Math.floor(Math.random()*this.#lista.length)
         this.#lista[hely] = 1
+
     }
     return this.#lista
   }
