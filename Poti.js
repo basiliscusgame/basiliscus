@@ -2,7 +2,7 @@ import { PICTURES } from "./poti_pictures.js"
 class Poti{
     #ero
     #DivElem
-    constructor(DivElem){
+    constructor(DivElem, kep){
         this.#DivElem = $("article")
         this.#ero = this.eroGeneral();
         DivElem.append(`<img src ="${PICTURES[0]}" alt = "#" >`)

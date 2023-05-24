@@ -24,20 +24,20 @@ class JatekTer {
     }
     return this.#lista, this.#divLista;
   }
-
-  randompoti() {
-    for (let index = 0; index < 4; index++) {
-      const hely = Math.floor(Math.random() * this.#lista.length);
-      this.#lista[hely] = 1;
-    }
-    return this.#lista;
-  }
   poti() {
     for (let index = 0; index < 4; index++) {
       const kep = `<img src=" ${
         PICTURES[Math.floor(Math.random() * PICTURES.length)]
       }"  >`;
     }
+  }
+
+  randompoti() {
+    for (let index = 0; index < 4; index++) {
+      const hely = Math.floor(Math.random() * this.#lista.length);
+      this.#lista[hely] = new Poti(this.#SzuloElem, this.poti());
+    }
+    return this.#lista;
   }
 }
 export default JatekTer;
