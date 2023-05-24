@@ -11,8 +11,8 @@ class JatekTer {
     //is.randompoti()
     console.log(this.randompoti());
     /* const pot = new Poti() */
-    console.log(this.#divLista)
-    console.log(this.#SzuloElem)
+    console.log(this.#divLista);
+    console.log(this.#SzuloElem);
   }
 
   lista_init() {
@@ -22,18 +22,50 @@ class JatekTer {
 
       //console.log(this.#lista[index])
     }
-    const hely = Math.floor(Math.random()*10)
-   
+    let hely = Math.floor(Math.random() * 10);
+    switch (hely) {
+      case 0:
+        hely = hely * 10;
+        break;
+      case 1:
+        hely = hely * 10;
+        break;
+      case 2:
+        hely = hely * 10;
+        break;
+      case 3:
+        hely = hely * 10;
+        break;
+      case 4:
+        hely = hely * 10;
+        break;
+      case 5:
+        hely = hely * 10;
+        break;
+      case 6:
+        hely = hely * 10;
+        break;
+      case 7:
+        hely = hely * 10;
+        break;
+      case 8:
+        hely = hely * 10;
+        break;
+      case 9:
+        hely = hely * 10;
+        break;
+
+      default:
+        break;
+    }
   }
-  
 
   randompoti() {
     for (let index = 0; index < 4; index++) {
       const hely = Math.floor(Math.random() * this.#lista.length);
       this.#divLista[hely] = new Poti(this.#divLista[hely].getDiv());
-      this.#lista[hely] = 1
+      this.#lista[hely] = 1;
     }
-    
   }
 }
 export default JatekTer;
