@@ -3,9 +3,7 @@ class Harry{
     #varazsero
     #kep
     #helyId
-    #divElem
-
-    constructor(){
+    constructor( hely){
         this.#kep = "Harry/seprusharry.png";
         this.#eletero = 5
         this.#varazsero = 2
@@ -21,7 +19,7 @@ class Harry{
     getHelyId(){
         return this.#helyId
     }
-    
+
 
 
 
