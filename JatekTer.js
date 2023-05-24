@@ -1,21 +1,18 @@
 import Poti from "./Poti.js";
 import JatekterELEM from "./JatekterELEM.js";
-import { PICTURES} from "./poti_pictures.js";
-import Harry from "./Harry.js";
 class JatekTer {
   #lista = [];
   #divLista = [];
   #SzuloElem;
   constructor() {
     this.#SzuloElem = $("article");
-    this.#lista = this.lista_init();
+    this.lista_init();
     console.log(this.#lista);
     //is.randompoti()
     console.log(this.randompoti());
     /* const pot = new Poti() */
     console.log(this.#divLista)
     console.log(this.#SzuloElem)
-    new Harry(this.#divLista[41])
   }
 
   lista_init() {
@@ -25,16 +22,18 @@ class JatekTer {
 
       //console.log(this.#lista[index])
     }
-    return this.#lista, this.#divLista;
+    const hely = Math.floor(Math.random()*10)
+   
   }
   
 
   randompoti() {
     for (let index = 0; index < 4; index++) {
       const hely = Math.floor(Math.random() * this.#lista.length);
-      this.#lista[hely] = new Poti(this.#divLista[hely].getDiv());
+      this.#divLista[hely] = new Poti(this.#divLista[hely].getDiv());
+      this.#lista[hely] = 1
     }
-    return this.#lista;
+    
   }
 }
 export default JatekTer;

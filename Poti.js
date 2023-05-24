@@ -14,9 +14,9 @@ class Poti{
     poti() {
         let kep
         for (let index = 0; index < 4; index++) {
-          kep = `<div><img src=" ${
+          kep = `<img src=" ${
             PICTURES[Math.floor(Math.random() * PICTURES.length)]
-          }"  ></div>`;
+          }"  >`;
           
         }
         return kep
