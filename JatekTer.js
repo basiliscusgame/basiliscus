@@ -1,6 +1,7 @@
 import Poti from "./Poti.js";
 import JatekterELEM from "./JatekterELEM.js";
 import { PICTURES} from "./poti_pictures.js";
+import Harry from "./Harry.js";
 class JatekTer {
   #lista = [];
   #divLista = [];
@@ -13,8 +14,8 @@ class JatekTer {
     console.log(this.randompoti());
     /* const pot = new Poti() */
     console.log(this.#divLista)
-    
-   console.log(this.#SzuloElem)
+    console.log(this.#SzuloElem)
+    new Harry(this.#divLista[41])
   }
 
   lista_init() {

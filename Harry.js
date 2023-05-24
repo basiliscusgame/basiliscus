@@ -2,17 +2,21 @@ class Harry{
     #eletero
     #varazsero
     #kep
-    #x
-    #y
-    constructor(eletero, varazsero){
+    #helyId
+    constructor(eletero, varazsero, hely){
         this.#kep = "Harry/seprusharry.png";
         this.#eletero = 5
         this.#varazsero = 2
+        
     }
 
 
     potik(){
         
+    }
+
+    getHelyId(){
+        return this.#helyId
     }
 
 
