@@ -1,5 +1,6 @@
 import Poti from "./Poti.js";
 import JatekterELEM from "./JatekterELEM.js";
+import { PICTURES} from "./poti_pictures.js";
 class JatekTer {
   #lista = [];
   #divLista = [];
@@ -20,22 +21,17 @@ class JatekTer {
     for (let index = 0; index < 100; index++) {
       this.#lista[index] = 0;
       this.#divLista[index] = new JatekterELEM(this.#SzuloElem);
+
       //console.log(this.#lista[index])
     }
     return this.#lista, this.#divLista;
   }
-  poti() {
-    for (let index = 0; index < 4; index++) {
-      const kep = `<img src=" ${
-        PICTURES[Math.floor(Math.random() * PICTURES.length)]
-      }"  >`;
-    }
-  }
+  
 
   randompoti() {
     for (let index = 0; index < 4; index++) {
       const hely = Math.floor(Math.random() * this.#lista.length);
-      this.#lista[hely] = new Poti(this.#SzuloElem, this.poti());
+      this.#lista[hely] = new Poti(this.#divLista[hely].getDiv());
     }
     return this.#lista;
   }
