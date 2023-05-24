@@ -1,5 +1,6 @@
 import Poti from "./Poti.js";
 import JatekterELEM from "./JatekterELEM.js";
+import Harry from "./Harry.js";
 class JatekTer {
   #lista = [];
   #divLista = [];
@@ -53,11 +54,10 @@ class JatekTer {
         break;
       case 9:
         hely = hely * 10;
-        break;
-
-      default:
-        break;
+      
     }
+    this.#divLista[hely] = new Harry(this.#divLista[hely].getDiv())
+   
   }
 
   randompoti() {
