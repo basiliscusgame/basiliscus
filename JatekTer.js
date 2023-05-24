@@ -54,7 +54,7 @@ class JatekTer {
         break;
       case 9:
         hely = hely * 10;
-      
+        break;
     }
     this.#divLista[hely] = new Harry(this.#divLista[hely])
    

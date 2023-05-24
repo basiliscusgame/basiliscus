@@ -7,6 +7,7 @@ class Harry{
         this.#kep = "Harry/seprusharry.png";
         this.#eletero = 5
         this.#varazsero = 2
+        this.#DivElem = $("article")
         
     }
 
@@ -18,6 +19,7 @@ class Harry{
     getHelyId(){
         return this.#helyId
     }
+
 
 
 
