@@ -56,7 +56,7 @@ class JatekTer {
         hely = hely * 10;
       
     }
-    this.#divLista[hely] = new Harry(this.#divLista[hely].getDiv())
+    this.#divLista[hely] = new Harry(this.#divLista[hely])
    
   }
 
