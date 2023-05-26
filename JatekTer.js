@@ -20,6 +20,8 @@ class JatekTer {
     //console.log(this.#SzuloElem);
   }
 
+  
+
   lista_init() {
     for (let index = 0; index < 100; index++) {
       this.#lista[index] = 0;
@@ -47,13 +49,14 @@ class JatekTer {
         }
         console.log("le: ", hely);
       }
-
-      this.harry.elhelyez(this.#divLista[hely].getDiv());
-      this.#lista[hely] = 2;
-      console.log(this.#lista);
+      
+      this.harry.elhelyez(this.#divLista[hely].getDiv())
+      this.#lista[hely] = 2
+      console.log(this.#lista)
+      
     });
 
-    let hely = Math.floor(Math.random() * 10) * 10;
+    let hely = Math.floor(Math.random() * 10) *10;
     this.harry = new Harry();
     this.harry.elhelyez(this.#divLista[hely].getDiv());
     this.#lista[hely] = 2;
