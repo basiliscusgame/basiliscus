@@ -13,6 +13,9 @@ body{
     background-attachment: fixed;
   
 }
+#harry{
+    max-width: 100px;
+}
 main{
     width: 90vw;
     height:var(--maxmeret);
