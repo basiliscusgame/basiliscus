@@ -3,7 +3,7 @@ class Harry{
     #varazsero
     #kep
     constructor(){
-        this.#kep = `<img src="Harry/seprusharry.png">`;
+        this.#kep = `<img src="Harry/seprusharry.png" id = "harry">`;
         this.#eletero = 5
         this.#varazsero = 2
         

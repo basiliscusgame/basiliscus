@@ -25,6 +25,7 @@ class JatekTer {
     }
     $(window).on("keydown", (e) => {
       console.log(e.code);
+      
     });
 
     let hely = Math.floor(Math.random() * 10);
@@ -64,7 +65,9 @@ class JatekTer {
 
     this.harry = new Harry();
     this.harry.elhelyez(this.#divLista[hely].getDiv());
+    this.mozog(ArrowUp,ArrowDown)
   }
+ 
 
   randompoti() {
     let index = 0;
