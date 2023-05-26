@@ -21,27 +21,41 @@ class JatekTer {
       this.#lista[index] = 0;
       this.#divLista[index] = new JatekterELEM(this.#SzuloElem);
     }
+    const harry = new Harry()
+
     $(window).on("keydown", (e) => {
+      this.#divLista[hely].getDiv().empty()
+      this.#lista[hely] = 0
       if(e.keyCode === 38){
         console.log(e.code);
-        hely = hely-10
         if(hely == 0){
           hely=0
+        }else{
+          hely = hely-10
         }
+        console.log("fel: ",hely)
       }else if(e.keyCode === 40){
         console.log(e.code);
-        hely = hely + 10
         if(hely == 90){
           hely=90
+        }else{
+          hely = hely + 10
         }
+        console.log("le: ",hely)
       }
-      this.harry
+      
+    //$(this.harry).replaceWith(new JatekterELEM(this.#divLista[hely].getDiv()))
+      harry.elhelyez(this.#divLista[hely].getDiv())
+      this.#lista[hely] = 2
+      console.log(this.#lista)
+      
     });
 
 
     let hely = Math.floor(Math.random() * 10) *10;
     this.harry = new Harry();
     this.harry.elhelyez(this.#divLista[hely].getDiv());
+    this.#lista[hely] = 2
   }
  
 
