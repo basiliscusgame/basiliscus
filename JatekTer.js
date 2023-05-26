@@ -35,7 +35,8 @@ class JatekTer {
           hely=90
         }
       }
-      this.harry
+          this.harry.elhelyez(this.#divLista[hely].getDiv());
+
     });
 
 
