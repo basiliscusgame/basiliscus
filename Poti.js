@@ -3,9 +3,9 @@ class Poti{
     #ero
     #DivElem
     constructor(DivElem, kep){
-        this.#DivElem = $("article")
+        this.#DivElem = DivElem
         this.#ero = this.eroGeneral();
-        DivElem.append(this.poti())
+        this.#DivElem.append(this.poti())
     }
 
     eroGeneral(){

@@ -8,64 +8,40 @@ class JatekTer {
   constructor() {
     this.#SzuloElem = $("article");
     this.lista_init();
-    console.log(this.#lista);
+    //console.log(this.#lista);
     //is.randompoti()
     console.log(this.randompoti());
     /* const pot = new Poti() */
-    console.log(this.#divLista);
-    console.log(this.#SzuloElem);
+    //console.log(this.#divLista);
+    //console.log(this.#SzuloElem);
   }
 
   lista_init() {
     for (let index = 0; index < 100; index++) {
       this.#lista[index] = 0;
       this.#divLista[index] = new JatekterELEM(this.#SzuloElem);
-
-      //console.log(this.#lista[index])
     }
     $(window).on("keydown", (e) => {
-      console.log(e.code);
-      
+      if(e.keyCode === 38){
+        console.log(e.code);
+        hely = hely-10
+        if(hely == 0){
+          hely=0
+        }
+      }else if(e.keyCode === 40){
+        console.log(e.code);
+        hely = hely + 10
+        if(hely == 90){
+          hely=90
+        }
+      }
+      this.harry
     });
 
-    let hely = Math.floor(Math.random() * 10);
 
-    switch (hely) {
-      case 0:
-        hely = hely * 10;
-        break;
-      case 1:
-        hely = hely * 10;
-        break;
-      case 2:
-        hely = hely * 10;
-        break;
-      case 3:
-        hely = hely * 10;
-        break;
-      case 4:
-        hely = hely * 10;
-        break;
-      case 5:
-        hely = hely * 10;
-        break;
-      case 6:
-        hely = hely * 10;
-        break;
-      case 7:
-        hely = hely * 10;
-        break;
-      case 8:
-        hely = hely * 10;
-        break;
-      case 9:
-        hely = hely * 10;
-        break;
-    }
-
+    let hely = Math.floor(Math.random() * 10) *10;
     this.harry = new Harry();
     this.harry.elhelyez(this.#divLista[hely].getDiv());
-    this.mozog(ArrowUp,ArrowDown)
   }
  
 
@@ -76,7 +52,9 @@ class JatekTer {
       if (hely % 10 == 0) {
         index--;
       } else {
-        this.#divLista[hely] = new Poti(this.#divLista[hely].getDiv());
+        
+   
+        new Poti(this.#divLista[hely].getDiv());
         this.#lista[hely] = 1;
         index++;
       }
