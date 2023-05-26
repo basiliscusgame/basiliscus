@@ -16,12 +16,13 @@ class JatekTer {
     //console.log(this.#SzuloElem);
   }
 
+  
+
   lista_init() {
     for (let index = 0; index < 100; index++) {
       this.#lista[index] = 0;
       this.#divLista[index] = new JatekterELEM(this.#SzuloElem);
     }
-    const harry = new Harry()
 
     $(window).on("keydown", (e) => {
       this.#divLista[hely].getDiv().empty()
@@ -44,13 +45,11 @@ class JatekTer {
         console.log("le: ",hely)
       }
       
-    //$(this.harry).replaceWith(new JatekterELEM(this.#divLista[hely].getDiv()))
-      harry.elhelyez(this.#divLista[hely].getDiv())
+      this.harry.elhelyez(this.#divLista[hely].getDiv())
       this.#lista[hely] = 2
       console.log(this.#lista)
       
     });
-
 
     let hely = Math.floor(Math.random() * 10) *10;
     this.harry = new Harry();
