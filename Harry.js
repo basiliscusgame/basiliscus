@@ -15,7 +15,7 @@ class Harry{
     potik(){
         
     }
-
+    
 }
 
 export default Harry

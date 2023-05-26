@@ -61,6 +61,7 @@ class JatekTer {
         hely = hely * 10;
         break;
     }
+
     this.harry = new Harry();
     this.harry.elhelyez(this.#divLista[hely].getDiv());
   }
