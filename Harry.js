@@ -3,12 +3,15 @@ class Harry{
     #varazsero
     #kep
     constructor(){
-        this.#kep = `<div> <img src="Harry/seprusharry.png"></div>`;
+        this.#kep = `<img src="Harry/seprusharry.png">`;
         this.#eletero = 5
         this.#varazsero = 2
         
     }
 
+    elhelyez(hova){
+        hova.append(this.#kep)
+    }
     potik(){
         
     }

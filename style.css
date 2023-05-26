@@ -1,17 +1,30 @@
 *{
     box-sizing: border-box;
+    margin:0;
     
+}
+:root {
+    --maxmeret:90vh;
+    --meret:calc(var(--maxmeret) / 10)
 }
 body{
     background-image: url(Harry/tiltottrengeteg.jpg);
     background-size: cover;
     background-attachment: fixed;
+  
+}
+main{
+    width: 90vw;
+    height:var(--maxmeret);
 }
 img{
     max-width: 50px;
 }
+header{
+
+}
 article{
     display: grid;
-    grid-template-columns: 1fr  1fr  1fr  1fr  1fr  1fr  1fr 1fr 1fr 1fr ;
-    grid-template-rows: 1fr  1fr  1fr  1fr  1fr  1fr  1fr 1fr 1fr 1fr ;
+    grid-template-columns: repeat(10, var(--meret)) ;
+    grid-template-rows:repeat(10, var(--meret));
 }

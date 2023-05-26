@@ -23,7 +23,12 @@ class JatekTer {
 
       //console.log(this.#lista[index])
     }
+    $(window).on("keydown", (e) => {
+      console.log(e.code);
+    });
+
     let hely = Math.floor(Math.random() * 10);
+
     switch (hely) {
       case 0:
         hely = hely * 10;
@@ -56,14 +61,21 @@ class JatekTer {
         hely = hely * 10;
         break;
     }
-   this.#divLista[hely] = new Harry()
+    this.harry = new Harry();
+    this.harry.elhelyez(this.#divLista[hely].getDiv());
   }
 
   randompoti() {
-    for (let index = 0; index < 4; index++) {
+    let index = 0;
+    while (index < 4) {
       const hely = Math.floor(Math.random() * this.#lista.length);
-      this.#divLista[hely] = new Poti(this.#divLista[hely].getDiv());
-      this.#lista[hely] = 1;
+      if (hely % 10 == 0) {
+        index--;
+      } else {
+        this.#divLista[hely] = new Poti(this.#divLista[hely].getDiv());
+        this.#lista[hely] = 1;
+        index++;
+      }
     }
   }
 }
