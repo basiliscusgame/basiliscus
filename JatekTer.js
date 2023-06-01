@@ -26,7 +26,8 @@ class JatekTer {
   lista_init() {
     for (let index = 0; index < 100; index++) {
       this.#lista[index] = 0;
-      this.#divLista[index] = new JatekterELEM(this.#SzuloElem);
+      this.#divLista[index] = new JatekterELEM(this.#SzuloElem, this.#divLista);
+
     }
     this.randompoti()
     this.potimozog()
@@ -80,15 +81,15 @@ class JatekTer {
   }
   potimozog() {
     for (let index = 0; index < this.#divLista.length; index++) {
-      setTimeout(function () {
-        this.#divLista[this.#potihely].setDiv(this.#potihely--);
+      setTimeout(() => {
+        this.#divLista[this.#potihely]=this.#divLista[this.#potihely--];
         if (this.#potihely % 10 == 0) {
-        this.#divLista[this.#potihely].getDiv().empty();
-      }
+          this.#divLista[this.#potihely].getDiv().empty();
+        }
       }, 1000);
-      
     }
   }
+  
   jatekVege() {
     if (this.#elkapottPotik == 6) {
       const voldi = new Voldi();

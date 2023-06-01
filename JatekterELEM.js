@@ -1,15 +1,15 @@
 class JatekterELEM {
   #div;
-  constructor(SzuloElem) {
+  #divLista
+  constructor(SzuloElem,divLista) {
     SzuloElem.append(`<div></div>`)
     this.#div = SzuloElem.children("div:last-child");
+    this.#divLista = divLista;
   }
   getDiv(){
     return this.#div
   }
-  setDiv(value) {
-    this.#div.html = value;
-  }
+  
 }
 
 export default JatekterELEM;
