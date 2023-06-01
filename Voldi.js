@@ -1,17 +1,19 @@
-class Voldi{
-    #kep
-    #elet
-    constructor(elet){
-        this.#kep = "Harry/voldemort.png"
+class Voldi {
+  #kep;
+  #elet;
+  constructor() {
+    this.#kep = "Harry/voldemort.png";
+    this.#elet = true;
+  }
 
-    }
-
-    elethalal(ms) {
-        
-        
-
-    }
-
+  elethalal() {
+    if (
+      this.#elet.on("click", () => {
+        this.#elet = false;
+      })
+    )
+      return this.#elet;
+  }
 }
 
-export default Voldi
+export default Voldi;

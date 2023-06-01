@@ -1,11 +1,13 @@
 import Poti from "./Poti.js";
 import JatekterELEM from "./JatekterELEM.js";
 import Harry from "./Harry.js";
+import Voldi from "./Voldi.js";
 class JatekTer {
   #lista = [];
   #divLista = [];
   #SzuloElem;
-  
+  #elkapottPotik
+  //voldi
   #potihely
   constructor() {
     this.#SzuloElem = $("article");
@@ -13,11 +15,12 @@ class JatekTer {
  
     //console.log(this.#lista);
     //is.randompoti()
-    console.log(this.randompoti());
+    //console.log(this.randompoti());
     
     /* const pot = new Poti() */
     //console.log(this.#divLista);
     //console.log(this.#SzuloElem);
+     //voldi = new Voldi()
   }
 
   
@@ -27,6 +30,8 @@ class JatekTer {
       this.#lista[index] = 0;
       this.#divLista[index] = new JatekterELEM(this.#SzuloElem);
     }
+    this.randompoti()
+    this.potimozog()
     
 
     $(window).on("keydown", (e) => {
@@ -53,18 +58,18 @@ class JatekTer {
       this.harry.elhelyez(this.#divLista[hely].getDiv())
       this.#lista[hely] = 2
       console.log(this.#lista)
-      
     });
 
     let hely = Math.floor(Math.random() * 10) *10;
     this.harry = new Harry();
     this.harry.elhelyez(this.#divLista[hely].getDiv());
     this.#lista[hely] = 2;
+   // this.voldi = new Voldi()
   }
 
   randompoti() {
     let index = 0;
-    while (index < 4) {
+    while (index < 4 /*&& !jatekVege()*/) {
       this.#potihely= Math.floor(Math.random() * this.#lista.length);
       if (this.#potihely % 10 == 0) {
         index--;
@@ -76,12 +81,21 @@ class JatekTer {
     }
   }
   potimozog(){
+    console.log(this.#potihely)
     for (let index = 0; index < this.#divLista.length; index++) {
-      this.#divLista[this.#potihely].getDiv() = this.#potihely--
-      if(this.#potihely %10 ==0){
+      this.#divLista[this.#potihely].getDiv() = this.#divLista[this.#potihely-1].getDiv()
+      if(this.#potihely % 10 == 0){
         this.#divLista[this.#potihely].getDiv().empty()
       }
       
+    }
+  }
+  jatekVege(){
+    if(this.#elkapottPotik == 6){
+      const voldi = new Voldi()
+      if(voldi.elethalal()==false){
+        console.log("vegeeee")
+      }
     }
   }
 }
