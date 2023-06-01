@@ -7,7 +7,7 @@ class JatekTer {
   #divLista = [];
   #SzuloElem;
   #elkapottPotik
-  //voldi
+  voldi
   #potihely
   constructor() {
     this.#SzuloElem = $("article");
@@ -15,12 +15,12 @@ class JatekTer {
  
     //console.log(this.#lista);
     //is.randompoti()
-    //console.log(this.randompoti());
+    console.log(this.randompoti());
     
     /* const pot = new Poti() */
     //console.log(this.#divLista);
     //console.log(this.#SzuloElem);
-     //voldi = new Voldi()
+     voldi = new Voldi()
   }
 
   
@@ -30,8 +30,6 @@ class JatekTer {
       this.#lista[index] = 0;
       this.#divLista[index] = new JatekterELEM(this.#SzuloElem);
     }
-    this.randompoti()
-    this.potimozog()
     
 
     $(window).on("keydown", (e) => {
@@ -69,7 +67,7 @@ class JatekTer {
 
   randompoti() {
     let index = 0;
-    while (index < 4 /*&& !jatekVege()*/) {
+    while (index < 4 && !jatekVege()) {
       this.#potihely= Math.floor(Math.random() * this.#lista.length);
       if (this.#potihely % 10 == 0) {
         index--;
@@ -81,7 +79,6 @@ class JatekTer {
     }
   }
   potimozog(){
-    console.log(this.#potihely)
     for (let index = 0; index < this.#divLista.length; index++) {
       this.#divLista[this.#potihely].setDiv(this.#potihely--);
       if(this.#potihely % 10 == 0){
