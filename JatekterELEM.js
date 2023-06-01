@@ -8,7 +8,7 @@ class JatekterELEM {
     return this.#div
   }
   setDiv(value) {
-    this.#div.innerHTML = value;
+    this.#div.html = value;
   }
 }
 
