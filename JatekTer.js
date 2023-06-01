@@ -94,7 +94,7 @@ class JatekTer {
     if(this.#elkapottPotik == 6){
       const voldi = new Voldi()
       if(voldi.elethalal()==false){
-        console.log("vegeeee")
+        console.log("vegee")
       }
     }
   }
