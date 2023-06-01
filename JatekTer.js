@@ -83,7 +83,7 @@ class JatekTer {
   potimozog(){
     console.log(this.#potihely)
     for (let index = 0; index < this.#divLista.length; index++) {
-      this.#divLista[this.#potihely].getDiv() = this.#divLista[this.#potihely-1].getDiv()
+      this.#divLista[this.#potihely].setDiv(this.#potihely--);
       if(this.#potihely % 10 == 0){
         this.#divLista[this.#potihely].getDiv().empty()
       }
