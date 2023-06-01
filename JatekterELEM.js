@@ -7,6 +7,7 @@ class JatekterELEM {
   getDiv(){
     return this.#div
   }
+  
 }
 
 export default JatekterELEM;
