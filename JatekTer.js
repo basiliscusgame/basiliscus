@@ -12,22 +12,17 @@ class JatekTer {
   constructor() {
     this.#SzuloElem = $("article");
     this.lista_init();
-    $(window).on("potimozgas",(event)=>{
-          
-      this.#divLista[this.potihely]=event.detail.potihely ;
-      this.#lista[this.potihely]=1 ;
-      console.log(event.detail);
+    $(window).on("potimozgas", (event) => {
+      this.#lista[this.potihely] = 0;
+     this.#divLista[this.potihely].getDiv().empty()
+      this.potihely = event.detail.potihely;
+      this.#lista[this.potihely] = 1;
+      let szuloelem=this.#divLista[this.potihely].getDiv()
+      delete event.target
+     /* new Poti() */
       
-    }
-    )
-    //console.log(this.#lista);
-    //is.randompoti()
-    //console.log(this.randompoti());
-
-    /* const pot = new Poti() */
-    //console.log(this.#divLista);
-    //console.log(this.#SzuloElem);
-    //voldi = new Voldi()
+      
+    });
   }
 
   lista_init() {
@@ -36,7 +31,6 @@ class JatekTer {
       this.#divLista[index] = new JatekterELEM(this.#SzuloElem);
     }
     this.randompoti();
-    //this.potimozog();
 
     $(window).on("keydown", (e) => {
       this.#divLista[hely].getDiv().empty();
@@ -62,19 +56,13 @@ class JatekTer {
       this.harry.elhelyez(this.#divLista[hely].getDiv());
       this.#lista[hely] = 2;
       //console.log(this.#lista);
-
-      
-
-
     });
-
-   
 
     let hely = Math.floor(Math.random() * 10) * 10;
     this.harry = new Harry();
     this.harry.elhelyez(this.#divLista[hely].getDiv());
     this.#lista[hely] = 2;
-    
+
     // this.voldi = new Voldi()
   }
 
@@ -82,22 +70,23 @@ class JatekTer {
     let index = 0;
     while (index < 4 /*&& !jatekVege()*/) {
       this.potihely = Math.floor(Math.random() * this.#lista.length);
-     
+
       if (this.potihely % 10 == 0) {
         index--;
       } else {
-        console.log(this.potihely)
-        const potiii = new Poti(this.#divLista[this.potihely].getDiv(),this.potihely);
-        potiii.potimozog()
+        console.log(this.potihely);
+         const potiii = new Poti(
+          this.#divLista[this.potihely].getDiv(),
+          this.potihely
+        );
+       // potiii.potimozog();
         this.#lista[this.potihely] = 1;
-        
+
         index++;
       }
     }
-    
   }
-  
-  
+
   potiElkap() {
     if (
       this.#divLista[hely].getDiv() == this.#divLista[this.potihely].getDiv()

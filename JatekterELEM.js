@@ -1,6 +1,6 @@
 class JatekterELEM {
   #div;
-  #divLista
+ 
   constructor(SzuloElem) {
     SzuloElem.append(`<div></div>`)
     this.#div = SzuloElem.children("div:last-child");

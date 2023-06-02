@@ -13,7 +13,9 @@ class Poti {
     console.log(potihely)
     this.potimozog()
   }
-
+  megjelent(){
+    console.log("valami")
+  }
   eroGeneral() {
     this.#ero = Math.floor(Math.random() * 5) + 2;
     return this.#ero
@@ -28,6 +30,14 @@ class Poti {
     return kep;
   }
 
+  setDivElem(value){
+    this.#DivElem = value
+  }
+
+  setHely(value){
+    this.potihely = value
+  }
+
   potimozog() {
     setInterval(() => {
       //this.#divLista[this.#potihely] = this.#divLista[this.#potihely-1];
@@ -40,7 +50,7 @@ class Poti {
         console.log(this.potihely);
       }
       this.esemenytrigger()
-    }, 1000);
+    }, 4000);
   }
   esemenytrigger() {
     const esemeny = new CustomEvent("potimozgas", {
