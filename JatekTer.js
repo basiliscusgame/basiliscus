@@ -8,11 +8,18 @@ class JatekTer {
   #SzuloElem;
   #elkapottPotik;
   voldi;
-  #potihely;
+  potihely;
   constructor() {
     this.#SzuloElem = $("article");
     this.lista_init();
-
+    $(window).on("potimozgas",(event)=>{
+          
+      this.#divLista[this.potihely]=event.detail.potihely ;
+      this.#lista[this.potihely]=1 ;
+      console.log(event.detail);
+      
+    }
+    )
     //console.log(this.#lista);
     //is.randompoti()
     //console.log(this.randompoti());
@@ -61,12 +68,7 @@ class JatekTer {
 
     });
 
-    $(window).on("potimozgas",(event)=>{
-      
-      
-      console.log(event.detail);
-    }
-    )
+   
 
     let hely = Math.floor(Math.random() * 10) * 10;
     this.harry = new Harry();
@@ -79,22 +81,26 @@ class JatekTer {
   randompoti() {
     let index = 0;
     while (index < 4 /*&& !jatekVege()*/) {
-      this.#potihely = Math.floor(Math.random() * this.#lista.length);
+      this.potihely = Math.floor(Math.random() * this.#lista.length);
      
-      if (this.#potihely % 10 == 0) {
+      if (this.potihely % 10 == 0) {
         index--;
       } else {
-        console.log(this.#potihely)
-        new Poti(this.#divLista[this.#potihely].getDiv(),this.#potihely);
-        this.#lista[this.#potihely] = 1;
+        console.log(this.potihely)
+        const potiii = new Poti(this.#divLista[this.potihely].getDiv(),this.potihely);
+        potiii.potimozog()
+        this.#lista[this.potihely] = 1;
+        
         index++;
       }
     }
+    
   }
+  
   
   potiElkap() {
     if (
-      this.#divLista[hely].getDiv() == this.#divLista[this.#potihely].getDiv()
+      this.#divLista[hely].getDiv() == this.#divLista[this.potihely].getDiv()
     ) {
       this.#elkapottPotik++;
     }

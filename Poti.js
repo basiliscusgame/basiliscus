@@ -2,13 +2,13 @@ import { PICTURES } from "./poti_pictures.js";
 class Poti {
   #ero;
   #DivElem;
-  #potihely
+  potihely
   #kep
   constructor(DivElem, potihely) {
     this.#DivElem = DivElem;
     this.#ero = this.eroGeneral();
     this.#DivElem.append(this.poti());
-    this.#potihely = potihely;
+    this.potihely = potihely;
     this.#kep = this.poti()
     console.log(potihely)
     this.potimozog()
@@ -31,13 +31,13 @@ class Poti {
   potimozog() {
     setInterval(() => {
       //this.#divLista[this.#potihely] = this.#divLista[this.#potihely-1];
-      this.#potihely--;
-      if (this.#potihely < 0) {
-        this.#potihely = 0;
+      this.potihely--;
+      if (this.potihely < 0) {
+        this.potihely = 0;
       }
-      if (this.#potihely % 10 == 0) {
+      if (this.potihely % 10 == 0) {
         /* this.potiElkap(); */
-        console.log(this.#potihely);
+        console.log(this.potihely);
       }
       this.esemenytrigger()
     }, 1000);
