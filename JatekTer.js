@@ -17,9 +17,7 @@ class JatekTer {
      this.#divLista[this.potihely].getDiv().empty()
       this.potihely = event.detail.potihely;
       this.#lista[this.potihely] = 1;
-      let szuloelem=this.#divLista[this.potihely].getDiv()
-      delete event.target
-     /* new Poti() */
+      this.#divLista[this.potihely].setDiv(event.target.getPotiDiv())
       
       
     });

@@ -8,6 +8,7 @@ class Poti {
     this.#DivElem = DivElem;
     this.#ero = this.eroGeneral();
     this.#DivElem.append(this.poti());
+    this.potiElem = this.#DivElem.children("img")
     this.potihely = potihely;
     this.#kep = this.poti()
     console.log(potihely)
@@ -34,6 +35,9 @@ class Poti {
     this.#DivElem = value
   }
 
+  getPotiDiv(){
+    return this.potiElem
+  }
   setHely(value){
     this.potihely = value
   }
@@ -50,7 +54,7 @@ class Poti {
         console.log(this.potihely);
       }
       this.esemenytrigger()
-    }, 4000);
+    }, 2000);
   }
   esemenytrigger() {
     const esemeny = new CustomEvent("potimozgas", {

@@ -9,6 +9,9 @@ class JatekterELEM {
   getDiv(){
     return this.#div
   }
+  setDiv(elem){
+    this.#div.html(elem)
+  }
   
 }
 
