@@ -26,12 +26,10 @@ class JatekTer {
   lista_init() {
     for (let index = 0; index < 100; index++) {
       this.#lista[index] = 0;
-      this.#divLista[index] = new JatekterELEM(this.#SzuloElem, this.#divLista);
-
+      this.#divLista[index] = new JatekterELEM(this.#SzuloElem);
     }
-    this.randompoti()
-    this.potimozog()
-    
+    this.randompoti();
+    //this.potimozog();
 
     $(window).on("keydown", (e) => {
       this.#divLista[hely].getDiv().empty();
@@ -56,13 +54,25 @@ class JatekTer {
 
       this.harry.elhelyez(this.#divLista[hely].getDiv());
       this.#lista[hely] = 2;
-      console.log(this.#lista);
+      //console.log(this.#lista);
+
+      
+
+
     });
+
+    $(window).on("potimozgas",(event)=>{
+      
+      
+      console.log(event.detail);
+    }
+    )
 
     let hely = Math.floor(Math.random() * 10) * 10;
     this.harry = new Harry();
     this.harry.elhelyez(this.#divLista[hely].getDiv());
     this.#lista[hely] = 2;
+    
     // this.voldi = new Voldi()
   }
 
@@ -70,26 +80,25 @@ class JatekTer {
     let index = 0;
     while (index < 4 /*&& !jatekVege()*/) {
       this.#potihely = Math.floor(Math.random() * this.#lista.length);
+     
       if (this.#potihely % 10 == 0) {
         index--;
       } else {
-        new Poti(this.#divLista[this.#potihely].getDiv());
+        console.log(this.#potihely)
+        new Poti(this.#divLista[this.#potihely].getDiv(),this.#potihely);
         this.#lista[this.#potihely] = 1;
         index++;
       }
     }
   }
-  potimozog() {
-    for (let index = 0; index < this.#divLista.length; index++) {
-      setTimeout(() => {
-        this.#divLista[this.#potihely]=this.#divLista[this.#potihely--];
-        if (this.#potihely % 10 == 0) {
-          this.#divLista[this.#potihely].getDiv().empty();
-        }
-      }, 1000);
+  
+  potiElkap() {
+    if (
+      this.#divLista[hely].getDiv() == this.#divLista[this.#potihely].getDiv()
+    ) {
+      this.#elkapottPotik++;
     }
   }
-  
   jatekVege() {
     if (this.#elkapottPotik == 6) {
       const voldi = new Voldi();
