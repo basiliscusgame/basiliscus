@@ -6,27 +6,29 @@ class JatekTer {
   #lista = [];
   #divLista = [];
   #SzuloElem;
-  #elkapottPotik;
+  #elkapottPotik=[];
   voldi;
   potihely;
   constructor() {
     this.#SzuloElem = $("article");
     this.lista_init();
     $(window).on("potimozgas", (event) => {
-      this.#lista[this.potihely] = 0;
+    /*   this.#lista[this.potihely] = 0;
      this.#divLista[this.potihely].getDiv().empty()
       this.potihely = event.detail.potihely;
-      this.#lista[this.potihely] = 1;
-      this.#divLista[this.potihely].setDiv(event.target.getPotiDiv())
-      
-      
+      this.#lista[this.potihely] = 1; */
+     // this.#divLista[this.potihely].setDiv(event.target.getPotiDiv())
+     console.log("poti lép") 
+     console.log(event.detail.getPotiDiv(),event.detail.potihely);
+     console.log(this.#divLista[event.detail.potihely])
+     this.#divLista[event.detail.potihely].setDiv(event.detail.getPotiDiv())
     });
   }
 
   lista_init() {
     for (let index = 0; index < 100; index++) {
       this.#lista[index] = 0;
-      this.#divLista[index] = new JatekterELEM(this.#SzuloElem);
+      this.#divLista[index] = new JatekterELEM(this.#SzuloElem);//itt vannak a játéktér elemek
     }
     this.randompoti();
 
