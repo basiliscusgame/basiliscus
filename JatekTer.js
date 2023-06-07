@@ -4,7 +4,7 @@ import Harry from "./Harry.js";
 import Voldi from "./Voldi.js";
 import Infopanel from "./Infopanel.js";
 
-import Info from "./info.js";
+import Info from "./Info.js";
 class JatekTer {
   #lista = [];
   #divLista = [];
@@ -16,13 +16,14 @@ class JatekTer {
   constructor() {
     this.#jatekVegeBool = false;
     this.#SzuloElem = $("article");
-    const Infopanel = $("header");
-    const info = new Info(Infopanel);
+  //  const Infopanel = $("header");
+   // const info = new Info(Infopanel);
     this.lista_init();
     this.#elkapottPotik = 0;
     this.infoelem = $("header");
     const info = new Infopanel(this.infoelem);
-    info.setPontBeallitas(0);
+    info.setPontBeallitas(0, " varázserő");
+   // info.potikSzamaIr(this.#elkapottPotik);
     $(window).on("potimozgas", (event) => {
       if (this.#jatekVegeBool) {
         return;
@@ -49,10 +50,9 @@ class JatekTer {
           this.#lista[this.potihely] = 1;
         } else {
           this.#elkapottPotik++;
-          info.setPontBeallitas(this.#elkapottPotik);
+          info.setPontBeallitas(this.#elkapottPotik, " varázserő");
         }
         //info.potikSzamaIr(this.#elkapottPotik);
-
       }
 
       if (
