@@ -10,7 +10,7 @@ class JatekterELEM {
     return this.#div
   }
   setDiv(elem){
-    console.log(elem,this.#div)
+    //console.log(elem,this.#div)
     this.#div.html(elem)
   }
   

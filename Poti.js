@@ -54,7 +54,7 @@ class Poti {
      
       console.log(this.potihely);
       this.esemenytrigger()
-    }, 2000);
+    }, 500);
   }
   esemenytrigger() {
     const esemeny = new CustomEvent("potimozgas", {
