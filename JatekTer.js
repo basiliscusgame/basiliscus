@@ -4,7 +4,7 @@ import Harry from "./Harry.js";
 import Voldi from "./Voldi.js";
 import Infopanel from "./Infopanel.js";
 
-import Info from "./Info.js";
+//import Info from "./Info.js";
 class JatekTer {
   #lista = [];
   #divLista = [];
@@ -21,8 +21,8 @@ class JatekTer {
     this.lista_init();
     this.#elkapottPotik = 0;
     this.infoelem = $("header");
-    const info = new Infopanel(this.infoelem);
-    info.setPontBeallitas(0, " varázserő");
+    this.info = new Infopanel(this.infoelem);
+    this.info.setPontBeallitas(0, " varázserő");
    // info.potikSzamaIr(this.#elkapottPotik);
     $(window).on("potimozgas", (event) => {
       if (this.#jatekVegeBool) {
@@ -50,7 +50,7 @@ class JatekTer {
           this.#lista[this.potihely] = 1;
         } else {
           this.#elkapottPotik++;
-          info.setPontBeallitas(this.#elkapottPotik, " varázserő");
+          this.info.setPontBeallitas(this.#elkapottPotik, " varázserő");
         }
         //info.potikSzamaIr(this.#elkapottPotik);
       }
@@ -145,7 +145,6 @@ class JatekTer {
     ) {
       this.#elkapottPotik++;
       console.log("ELKAOTT POTIK SZÁMA: " + this.#elkapottPotik);
-      info.potikSzamaIr(this.#elkapottPotik);
     }
   }
 
@@ -158,18 +157,19 @@ class JatekTer {
           delete this.#divLista[index];
         }
       }
-      voldi.elhelyez(this.#divLista[69].getDiv());
+      //this.#divLista[69].setDiv(voldi);
       this.#jatekVegeBool = true;
+      voldi.elhelyez(this.#divLista[69].getDiv());
 
-      $(voldi).on("click", () => {
-        this.voldi.elet = false;
-        info.setVege();
+       this.#divLista[69].getDiv().on("click", () => {
+        voldi.elet = false;
+        this.info.setVege();
         //this.#jatekVegeBool = true
       });
       //this.elethalal(voldi);
       if (voldi.elet == false) {
         console.log("vegee");
-        info.setVege();
+        this.info.setVege()
       }
     }
   }

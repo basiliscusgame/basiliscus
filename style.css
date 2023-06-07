@@ -21,14 +21,8 @@ main {
 img {
   max-width: 50px;
 }
-header {
-  background-color: rgb(192, 190, 190);
-  font-size: large;
-  color: black;
-  width: 50px;
-  
-}
 header{
+    background-color: rgb(129, 123, 123);
     color: aliceblue;
     text-align: center;
 }
