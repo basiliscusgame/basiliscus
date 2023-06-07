@@ -1,19 +1,14 @@
 class Voldi {
   #kep;
-  #elet;
+  elet;
   constructor() {
-    this.#kep = "Harry/voldemort.png";
-    this.#elet = true;
+    this.#kep = `<img src="Harry/voldemort.png">`;
+    this.elet = true;
   }
-
-  elethalal() {
-    if (
-      this.#elet.on("click", () => {
-        this.#elet = false;
-      })
-    )
-      return this.#elet;
+  elhelyez(hova) {
+    hova.append(this.#kep);
   }
+  
 }
 
 export default Voldi;

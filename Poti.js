@@ -45,11 +45,13 @@ class Poti {
   }
 
   potimozog() {
-    setInterval(() => {
+    let my = setInterval(() => {
       //this.#divLista[this.#potihely] = this.#divLista[this.#potihely-1];
       this.potihely--;
       if (this.potihely < 0) {
         this.potihely = 0;
+        clearInterval(my)
+       // delete this
       }
      
       console.log(this.potihely);

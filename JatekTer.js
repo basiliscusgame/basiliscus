@@ -7,23 +7,51 @@ class JatekTer {
   #divLista = [];
   #SzuloElem;
   #elkapottPotik;
-  voldi;
   potihely;
+  harryHely;
+  #jatekVegeBool
   constructor() {
+    this.#jatekVegeBool = false
     this.#SzuloElem = $("article");
     this.lista_init();
+    this.#elkapottPotik = 0;
     $(window).on("potimozgas", (event) => {
+      if ( this.#jatekVegeBool){
+        return
+      }
       /*   
      this.#divLista[this.potihely].getDiv().empty()
       this.potihely = event.detail.potihely;
       this.#lista[this.potihely] = 1; */
       // this.#divLista[this.potihely].setDiv(event.target.getPotiDiv())
       this.#lista[this.potihely] = 0;
-      console.log("poti lép");
+    //  console.log("poti lép");
       //console.log(event.detail.getPotiDiv(), event.detail.potihely);
-     // console.log(this.#divLista[event.detail.potihely]);
-      this.#divLista[event.detail.potihely].setDiv(event.detail.getPotiDiv());
-      this.#lista[this.potihely] = 1;
+      // console.log(this.#divLista[event.detail.potihely]);
+     /*  if (this.potihely %10 ==0) {
+        this.potihely = -1;
+       
+      } */
+      if (event.detail.potihely >= 0) {
+        if (event.detail.potihely !== this.harryHely) {
+      //    console.log(event.detail.potihely)
+          this.#divLista[event.detail.potihely].setDiv(
+            event.detail.getPotiDiv()
+          );
+          this.#lista[this.potihely] = 1;
+        } else {
+          this.#elkapottPotik++;
+        }
+      }
+
+      if (event.detail.potihely%10 ==0 && this.#lista[event.detail.potihely] != 2) {
+       this.#lista[event.detail.potihely] = 0
+       this.#divLista[event.detail.potihely].getDiv().empty()
+      }
+     // delete this.#divLista[event.detail.potihely]
+      this.potiElkap(this.harryHely);
+     // console.log(this.#elkapottPotik);
+      this.jatekVege();
     });
   }
 
@@ -35,50 +63,55 @@ class JatekTer {
     this.randompoti();
 
     $(window).on("keydown", (e) => {
-      this.#divLista[harryHely].getDiv().empty();
-      this.#lista[harryHely] = 0;
+      if ( this.#jatekVegeBool){
+        return
+      }
+      this.#divLista[this.harryHely].getDiv().empty();
+      this.#lista[this.harryHely] = 0;
       if (e.keyCode === 38) {
         //console.log(e.code);
-        if (harryHely == 0) {
-          harryHely = 0;
+        if (this.harryHely == 0) {
+          this.harryHely = 0;
         } else {
-          harryHely = harryHely - 10;
+          this.harryHely = this.harryHely - 10;
         }
-       // console.log("fel: ", hely);
+        // console.log("fel: ", hely);
       } else if (e.keyCode === 40) {
         //console.log(e.code);
-        if (harryHely == 90) {
-          harryHely = 90;
+        if (this.harryHely == 90) {
+          this.harryHely = 90;
         } else {
-          harryHely = harryHely + 10;
+          this.harryHely = this.harryHely + 10;
         }
-       // console.log("le: ", hely);
+        // console.log("le: ", hely);
+        this.potiElkap(this.harryHely);
+        // this.jatekVege();
       }
 
-      this.harry.elhelyez(this.#divLista[harryHely].getDiv());
-      this.#lista[harryHely] = 2;
-      console.log(this.#lista)
+      this.harry.elhelyez(this.#divLista[this.harryHely].getDiv());
+      this.#lista[this.harryHely] = 2;
+     // console.log(this.#lista);
       //console.log(this.#lista);
     });
 
-    let harryHely = Math.floor(Math.random() * 10) * 10;
+    this.harryHely = Math.floor(Math.random() * 10) * 10;
     this.harry = new Harry();
-    this.harry.elhelyez(this.#divLista[harryHely].getDiv());
-    this.#lista[harryHely] = 2;
-    
-    this.potiElkap(harryHely);
-    // this.voldi = new Voldi()
+    this.harry.elhelyez(this.#divLista[this.harryHely].getDiv());
+    this.#lista[this.harryHely] = 2;
   }
 
   randompoti() {
+    if ( this.#jatekVegeBool){
+      return
+    }
     let index = 0;
-    while (index < 4 /*&& !jatekVege()*/) {
+    while (index < 4 && !this.#jatekVegeBool) {
       this.potihely = Math.floor(Math.random() * this.#lista.length);
 
       if (this.potihely % 10 == 0) {
         index--;
       } else {
-        console.log(this.potihely);
+       // console.log(this.potihely);
         const potiii = new Poti(
           this.#divLista[this.potihely].getDiv(),
           this.potihely
@@ -93,21 +126,36 @@ class JatekTer {
 
   potiElkap(harryHely) {
     if (
-     // this.#divLista[hely].getDiv() == this.#divLista[this.potihely].getDiv()
+      // this.#divLista[hely].getDiv() == this.#divLista[this.potihely].getDiv()
       this.#lista[harryHely] == this.#lista[this.potihely]
-
     ) {
       this.#elkapottPotik++;
-      console.log("ELKAOTT POTIK SZÁMA: "+this.#elkapottPotik)
+      console.log("ELKAOTT POTIK SZÁMA: " + this.#elkapottPotik);
     }
   }
+
   jatekVege() {
-    if (this.#elkapottPotik == 6) {
+    if (this.#elkapottPotik == 2) {
       const voldi = new Voldi();
-      if (voldi.elethalal() == false) {
+      for (let index = 0; index < this.#lista.length; index++) {
+        console.log("POTIK ELTÜNTETÉSE", this.#lista)
+        if (this.#lista[index] == 1) {
+          delete this.#divLista[index];
+        }
+      }
+      voldi.elhelyez(this.#divLista[69].getDiv());
+      this.#jatekVegeBool = true;
+    
+      $(voldi).on("click", () => {
+        this.voldi.elet = false;
+        //this.#jatekVegeBool = true
+      });
+      //this.elethalal(voldi);
+      if (voldi.elet == false) {
         console.log("vegee");
       }
     }
   }
+  
 }
 export default JatekTer;
