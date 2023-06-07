@@ -1,16 +1,31 @@
-*{
-    box-sizing: border-box;
-    margin:0;
-    
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
 :root {
-    --maxmeret:90vh;
-    --meret:calc(var(--maxmeret) / 10)
+  --maxmeret: 90vh;
+  --meret: calc(var(--maxmeret) / 10);
 }
-body{
-    background-image: url(Harry/tiltottrengeteg.jpg);
-    background-size: cover;
-    background-attachment: fixed;
+body {
+  background-image: url(Harry/tiltottrengeteg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+#harry {
+  max-width: 100px;
+}
+main {
+  width: 90vw;
+  height: var(--maxmeret);
+}
+img {
+  max-width: 50px;
+}
+header {
+  background-color: rgb(192, 190, 190);
+  font-size: large;
+  color: black;
+  width: 50px;
   
 }
 header{
@@ -27,11 +42,9 @@ main{
 img{
     max-width: 50px;
 }
-header{
 
-}
-article{
-    display: grid;
-    grid-template-columns: repeat(10, var(--meret)) ;
-    grid-template-rows:repeat(10, var(--meret));
+article {
+  display: grid;
+  grid-template-columns: repeat(10, var(--meret));
+  grid-template-rows: repeat(10, var(--meret));
 }

@@ -4,6 +4,7 @@ import Harry from "./Harry.js";
 import Voldi from "./Voldi.js";
 import Infopanel from "./Infopanel.js";
 
+import Info from "./info.js";
 class JatekTer {
   #lista = [];
   #divLista = [];
@@ -15,6 +16,8 @@ class JatekTer {
   constructor() {
     this.#jatekVegeBool = false;
     this.#SzuloElem = $("article");
+    const Infopanel = $("header");
+    const info = new Info(Infopanel);
     this.lista_init();
     this.#elkapottPotik = 0;
     this.infoelem = $("header");
@@ -48,6 +51,8 @@ class JatekTer {
           this.#elkapottPotik++;
           info.setPontBeallitas(this.#elkapottPotik);
         }
+        //info.potikSzamaIr(this.#elkapottPotik);
+
       }
 
       if (
@@ -140,6 +145,7 @@ class JatekTer {
     ) {
       this.#elkapottPotik++;
       console.log("ELKAOTT POTIK SZÁMA: " + this.#elkapottPotik);
+      info.potikSzamaIr(this.#elkapottPotik);
     }
   }
 
@@ -157,11 +163,13 @@ class JatekTer {
 
       $(voldi).on("click", () => {
         this.voldi.elet = false;
+        info.setVege();
         //this.#jatekVegeBool = true
       });
       //this.elethalal(voldi);
       if (voldi.elet == false) {
         console.log("vegee");
+        info.setVege();
       }
     }
   }

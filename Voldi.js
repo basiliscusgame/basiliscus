@@ -8,7 +8,6 @@ class Voldi {
   elhelyez(hova) {
     hova.append(this.#kep);
   }
-  
 }
 
 export default Voldi;
