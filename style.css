@@ -13,6 +13,10 @@ body{
     background-attachment: fixed;
   
 }
+header{
+    color: aliceblue;
+    text-align: center;
+}
 #harry{
     max-width: 100px;
 }

@@ -2,6 +2,8 @@ import Poti from "./Poti.js";
 import JatekterELEM from "./JatekterELEM.js";
 import Harry from "./Harry.js";
 import Voldi from "./Voldi.js";
+import Infopanel from "./Infopanel.js";
+
 class JatekTer {
   #lista = [];
   #divLista = [];
@@ -9,15 +11,18 @@ class JatekTer {
   #elkapottPotik;
   potihely;
   harryHely;
-  #jatekVegeBool
+  #jatekVegeBool;
   constructor() {
-    this.#jatekVegeBool = false
+    this.#jatekVegeBool = false;
     this.#SzuloElem = $("article");
     this.lista_init();
     this.#elkapottPotik = 0;
+    this.infoelem = $("header");
+    const info = new Infopanel(this.infoelem);
+    info.setPontBeallitas(0);
     $(window).on("potimozgas", (event) => {
-      if ( this.#jatekVegeBool){
-        return
+      if (this.#jatekVegeBool) {
+        return;
       }
       /*   
      this.#divLista[this.potihely].getDiv().empty()
@@ -25,32 +30,36 @@ class JatekTer {
       this.#lista[this.potihely] = 1; */
       // this.#divLista[this.potihely].setDiv(event.target.getPotiDiv())
       this.#lista[this.potihely] = 0;
-    //  console.log("poti lép");
+      //  console.log("poti lép");
       //console.log(event.detail.getPotiDiv(), event.detail.potihely);
       // console.log(this.#divLista[event.detail.potihely]);
-     /*  if (this.potihely %10 ==0) {
+      /*  if (this.potihely %10 ==0) {
         this.potihely = -1;
        
       } */
       if (event.detail.potihely >= 0) {
         if (event.detail.potihely !== this.harryHely) {
-      //    console.log(event.detail.potihely)
+          //    console.log(event.detail.potihely)
           this.#divLista[event.detail.potihely].setDiv(
             event.detail.getPotiDiv()
           );
           this.#lista[this.potihely] = 1;
         } else {
           this.#elkapottPotik++;
+          info.setPontBeallitas(this.#elkapottPotik);
         }
       }
 
-      if (event.detail.potihely%10 ==0 && this.#lista[event.detail.potihely] != 2) {
-       this.#lista[event.detail.potihely] = 0
-       this.#divLista[event.detail.potihely].getDiv().empty()
+      if (
+        event.detail.potihely % 10 == 0 &&
+        this.#lista[event.detail.potihely] != 2
+      ) {
+        this.#lista[event.detail.potihely] = 0;
+        this.#divLista[event.detail.potihely].getDiv().empty();
       }
-     // delete this.#divLista[event.detail.potihely]
+      // delete this.#divLista[event.detail.potihely]
       this.potiElkap(this.harryHely);
-     // console.log(this.#elkapottPotik);
+      // console.log(this.#elkapottPotik);
       this.jatekVege();
     });
   }
@@ -63,8 +72,8 @@ class JatekTer {
     this.randompoti();
 
     $(window).on("keydown", (e) => {
-      if ( this.#jatekVegeBool){
-        return
+      if (this.#jatekVegeBool) {
+        return;
       }
       this.#divLista[this.harryHely].getDiv().empty();
       this.#lista[this.harryHely] = 0;
@@ -90,7 +99,7 @@ class JatekTer {
 
       this.harry.elhelyez(this.#divLista[this.harryHely].getDiv());
       this.#lista[this.harryHely] = 2;
-     // console.log(this.#lista);
+      // console.log(this.#lista);
       //console.log(this.#lista);
     });
 
@@ -101,8 +110,8 @@ class JatekTer {
   }
 
   randompoti() {
-    if ( this.#jatekVegeBool){
-      return
+    if (this.#jatekVegeBool) {
+      return;
     }
     let index = 0;
     while (index < 4 && !this.#jatekVegeBool) {
@@ -111,7 +120,7 @@ class JatekTer {
       if (this.potihely % 10 == 0) {
         index--;
       } else {
-       // console.log(this.potihely);
+        // console.log(this.potihely);
         const potiii = new Poti(
           this.#divLista[this.potihely].getDiv(),
           this.potihely
@@ -138,14 +147,14 @@ class JatekTer {
     if (this.#elkapottPotik == 2) {
       const voldi = new Voldi();
       for (let index = 0; index < this.#lista.length; index++) {
-        console.log("POTIK ELTÜNTETÉSE", this.#lista)
+        console.log("POTIK ELTÜNTETÉSE", this.#lista);
         if (this.#lista[index] == 1) {
           delete this.#divLista[index];
         }
       }
       voldi.elhelyez(this.#divLista[69].getDiv());
       this.#jatekVegeBool = true;
-    
+
       $(voldi).on("click", () => {
         this.voldi.elet = false;
         //this.#jatekVegeBool = true
@@ -156,6 +165,5 @@ class JatekTer {
       }
     }
   }
-  
 }
 export default JatekTer;
