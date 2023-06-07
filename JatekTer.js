@@ -149,7 +149,7 @@ class JatekTer {
   }
 
   jatekVege() {
-    if (this.#elkapottPotik == 2) {
+    if (this.#elkapottPotik == 6) {
       const voldi = new Voldi();
       for (let index = 0; index < this.#lista.length; index++) {
         console.log("POTIK ELTÜNTETÉSE", this.#lista);
