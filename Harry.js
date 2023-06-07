@@ -11,7 +11,6 @@ class Harry {
   elhelyez(hova) {
     hova.append(this.#kep);
   }
- 
 
   potik() {}
 

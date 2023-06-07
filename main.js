@@ -1,6 +1,5 @@
-import JatekTer from "./JatekTer.js"
+import JatekTer from "./JatekTer.js";
 
-$(function(){
-    
-    new JatekTer();
-})
+$(function () {
+  new JatekTer();
+});
